@@ -1,0 +1,136 @@
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family: 'ABeeZee', 'Poppins', 'Segoe UI', 'Microsoft JhengHei', sans-serif;line-height:1.6;color:#111;background:#fff}
+.container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+
+/* Header */
+.site-header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:50;padding-top:20px;padding-bottom:10px}
+.site-header .container{position:relative;display:flex;align-items:center;gap:24px}
+.logo{font-family: 'Rye', serif;font-size:80px;line-height:1;color:#111;text-decoration:none}
+.header-subtitle{position:absolute;left:50%;top:-6px;transform:translateX(-50%);font-size:12px;letter-spacing:7.2px;text-transform:none;color:#111;opacity:0.9}
+
+.main-nav{display:flex;gap:12px;align-items:center}
+.nav-pill{display:inline-block;padding:8px 20px;border:1px solid #111;border-radius:24px;text-decoration:none;color:#111;font-weight:600;font-size:18px}
+.nav-pill:hover{background:rgba(0,0,0,0.04)}
+
+.menu-toggle{display:none;background:transparent;border:0;font-size:1.6rem;cursor:pointer}
+.sign{position:absolute;left:48%;top:-29px;width:224px;opacity:0.37;pointer-events:none}
+.sign img{width:100%;height:auto;display:block}
+
+/* Hero */
+.hero{height:580px;background-size:cover;background-position:center;background-repeat:no-repeat;box-shadow:inset 0 -80px 80px -40px rgba(0,0,0,0.18)}
+
+/* Life section */
+.section{padding:60px 0}
+/* Ensure section containers stack their child blocks vertically (fixes Works/Influence layout), but keep two-col flexible */
+.section .container:not(.two-col){display:block}
+.two-col{display:flex;gap:34px;align-items:center}
+.life-text{flex:1;min-width:420px;position:relative}
+.life-text h2{font-family:'Rye',serif;font-size:40px;margin-bottom:12px}
+.life-text p{font-family:'ABeeZee','Poppins',sans-serif;font-weight:400;font-size:16px;line-height:1.7;color:#222;margin-bottom:1em}
+.life-text .watermark{position:absolute;left:80px;top:-24px;font-family:'Garamond','Times New Roman',serif;font-size:48px;color:rgba(0,0,0,0.37);pointer-events:none}
+.life-photo{width:484px;height:382px;overflow:hidden;border-radius:89px}
+.life-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+
+/* Small utilities */
+.text-muted{color:#777}
+
+/* Responsive */
+@media (max-width:980px){
+  .logo{font-size:56px}
+  .sign{left:46%}
+  .life-photo{width:340px;height:268px}
+}
+
+@media (max-width:768px){
+  .container{padding:0 16px}
+  .main-nav{display:none;flex-direction:column;gap:10px;width:100%;padding:12px}
+  .site-header.open .main-nav{display:flex;background:#fff;border-top:1px solid #eee}
+  .menu-toggle{display:block}
+  .logo{font-size:40px}
+  .header-subtitle{left:40%;font-size:11px}
+  .two-col{flex-direction:column}
+  .life-photo{width:100%}
+  .sign{display:none}
+}
+
+/* Works section */
+.section-title{display:flex;align-items:baseline;gap:12px;padding:20px 0 28px}
+.section-title .title-zh{font-size:40px;font-family:'Rye',serif;font-weight:400;margin-bottom:12px}
+.section-title .title-en{font-size:48px;color:rgba(0,0,0,0.38);font-family:'Garamond','Times New Roman',serif;margin-left:10px}
+
+/* Influence-specific tweaks when used inside the hero */
+.influence-title{padding:0 0 16px}
+.influence-title .title-en{font-size:48px;color:rgba(0,0,0,0.38);font-family:'Garamond','Times New Roman',serif;margin-left:10px}
+
+.works-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px}
+.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);display:flex;flex-direction:column}
+.thumb{height:270px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.thumb img.thumb-img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.95);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.play::after{content:'';display:block;width:0;height:0;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #111}
+.card-intro{padding:14px}
+.card-intro h4{font-size:14px;margin-bottom:6px;font-weight:700}
+.card-intro p{font-size:12px;color:#555}
+
+/* Responsive */
+@media (max-width:980px){
+  .works-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:768px){
+  .section-title .title-en{font-size:32px}
+  .works-grid{grid-template-columns:1fr}
+}
+
+/* Relationships & Influence */
+/* Default behavior: show relationships photo on the LEFT on wide screens */
+#relationships .two-col{flex-direction:row}
+#relationships .rel-photo{width:484px;flex-shrink:0}
+#relationships .rel-photo img{width:100%;height:100%;object-fit:cover;border-radius:171px;display:block}
+#relationships .rel-text{flex:1;min-width:420px;position:relative}
+#relationships .rel-text h2{font-family:'Rye',serif;font-size:40px;margin-bottom:12px}
+#relationships .rel-text .watermark{position:absolute;left:160px;top:-17px;font-family:'Garamond','Times New Roman',serif;font-size:48px;color:rgba(0,0,0,0.37);pointer-events:none}
+#relationships .rel-text p{font-family:'ABeeZee','Poppins',sans-serif;margin-bottom:1em}
+
+.influence-hero{position:relative;min-height:600px;height:auto;background-size:cover;background-position:center;display:block;padding-top:40px;padding-bottom:40px;overflow:hidden}
+.influence-hero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 35%, rgba(255,255,255,0.0) 100%);z-index:1;pointer-events:none}
+/* Position the content flush to the page left edge on wide screens, but keep it in normal flow so section height can expand */
+.influence-hero .container{position:relative;margin-left:34px;margin-top:0;color:#111;z-index:2;display:block;max-width:760px;width:100%;font-family:'ABeeZee','Poppins',sans-serif}
+.influence-hero h2{display:none}
+.influence-hero .watermark{display:none}
+
+/* Inline title for Influence to match other sections */
+.influence-title{display:flex;align-items:baseline;gap:12px;padding:0 0 16px;white-space:nowrap}
+.influence-title .title-zh{font-size:40px;font-family:'Rye',serif;font-weight:400;margin-bottom:12px}
+.influence-title .title-en{font-size:48px;color:rgba(0,0,0,0.38);font-family:'Garamond','Times New Roman',serif;margin-left:10px;white-space:nowrap}
+
+/* Title image fallback (SVG data URI used to avoid font loading) */
+.title-img{height:48px;display:inline-block;vertical-align:middle}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* Slight tweak to better vertically center watermark to the h2 baseline on medium screens */
+@media (max-width:1100px){
+  .influence-hero .watermark{left:320px;top:12px}
+}
+@media (max-width:768px){
+  .influence-hero{height:auto;padding-top:24px}
+  .influence-hero::before{background:linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0.0) 100%)}
+  /* Revert to normal flow on small screens */
+  .influence-hero .container{position:relative;margin-left:0;width:auto;padding-left:20px}
+  .influence-hero .watermark{left:40px;top:8px;font-size:32px}
+  .influence-title{flex-wrap:wrap}
+  .influence-title .title-en{font-size:32px}
+}
+.influence-text{max-width:420px;font-size:16px;line-height:1.7;text-align:left}
+.influence-text p{margin-bottom:1em}
+
+/* Responsive tweaks for relationships */
+@media (max-width:768px){
+  #relationships .two-col{flex-direction:column}
+  #relationships .rel-photo{width:100%;height:auto;border-radius:171px}
+  #relationships .rel-photo img{object-position:top center}
+}
+
+/* small footer placeholder */
+footer{padding:36px 0;text-align:center;color:#fff;background:#111}
+
